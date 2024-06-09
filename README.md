@@ -38,14 +38,14 @@ Este repositório contém a implementação da atividade prática para a discipl
 
 A estrutura do projeto segue o padrão MVC (Model-View-Controller) e DAO (Data Access Object):
 
-project/
+project
 │
-├── models/
+├── models
 │ ├── init.py
 │ ├── base.py
 │ ├── northwind_models.py
 │
-├── dao/
+├── dao
 │ ├── init.py
 │ ├── base_dao.py
 │ ├── customer_dao.py
@@ -54,12 +54,12 @@ project/
 │ ├── order_details_dao.py
 │ ├── product_dao.py
 │
-├── views/
+├── views
 │ ├── init.py
 │ ├── input_view.py
 │ ├── output_view.py
 │
-├── controllers/
+├── controllers
 │ ├── init.py
 │ ├── order_controller.py
 │
