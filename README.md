@@ -37,7 +37,7 @@ Este repositório contém a implementação da atividade prática para a discipl
 ## Estrutura do Projeto
 
 A estrutura do projeto segue o padrão MVC (Model-View-Controller) e DAO (Data Access Object):
-
+```bash
 project
 │
 ├── models
@@ -66,6 +66,7 @@ project
 ├── main_psycopg.py
 ├── main_sqlalchemy.py
 └── requirements.txt
+```
 
 ## Implementações
 
