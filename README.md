@@ -38,7 +38,7 @@ Este repositório contém a implementação da atividade prática para a discipl
 
 A estrutura do projeto segue o padrão MVC (Model-View-Controller) e DAO (Data Access Object):
 ```bash
-project
+Northwind
 │
 ├── models
 │ ├── init.py
