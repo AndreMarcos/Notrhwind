@@ -38,4 +38,24 @@ class OrderDAO(BaseDAO):
         connection.close()
         
         print(f"Ordem {order_data['orderid']} adicionada com sucesso!")
-        
+
+
+from .base_dao import BaseDAOSQLAlchemy
+from sqlalchemy import func
+from models.northwind_models import Order
+  
+class DaoSQLAlchemy(BaseDAOSQLAlchemy):
+    def get_last_order_id(self):
+        session = self.get_session()
+        last_order_id = session.query(func.max(Order.orderid)).scalar()
+        session.close()
+        return last_order_id
+    
+    def insert_order(self, order_data):
+        session = self.get_session()
+        order = Order(**order_data)
+        session.add(order)
+        session.commit()
+        order_id = order.orderid  # Obtenha o ID do pedido inserido
+        session.close()
+        return order_id

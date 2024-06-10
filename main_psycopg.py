@@ -3,10 +3,10 @@ from dao.order_dao import OrderDAO
 
 db_config = {
     'dbname': 'northwind',
-    'user': 'postgres',
-    'password': '',
-    'host': '',
-    'port': ''
+    'user': 'user',
+    'password': 'senha',
+    'host': 'localhost',
+    'port': '15432'
 }
 
 order_dao = OrderDAO(db_config)
