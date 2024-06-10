@@ -48,16 +48,11 @@ Northwind
 ├── dao
 │ ├── init.py
 │ ├── base_dao.py
-│ ├── customer_dao.py
-│ ├── employee_dao.py
 │ ├── order_dao.py
-│ ├── order_details_dao.py
-│ ├── product_dao.py
 │
 ├── views
 │ ├── init.py
 │ ├── input_view.py
-│ ├── output_view.py
 │
 ├── controllers
 │ ├── init.py
