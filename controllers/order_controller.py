@@ -9,3 +9,19 @@ class OrderController:
         last_order_id = self.dao.get_last_order_id()
         order_details = InputView.get_order_details(last_order_id)
         self.dao.insert_order(order_details)
+
+    def print_order_info(self, order_id):
+        order_info = self.dao.get_order_info(order_id)
+        print(f"ID do Pedido: {order_info['order_id']}")
+        print(f"Data do Pedido: {order_info['order_date']}")
+        print(f"Cliente: {order_info['customer_name']}")
+        print(f"Funcionário: {order_info['employee_name']}")
+        print("Itens do Pedido:")
+        for item in order_info['items']:
+            print(f" - Produto: {item['product']}, Quantidade: {item['quantity']}, Preço: {item['price']}")
+            
+    def print_employee_ranking(self, start_date, end_date):
+        ranking = self.dao.get_employee_ranking(start_date, end_date)
+        print("Ranking dos Funcionários:")
+        for employee in ranking:
+            print(f" - {employee.firstname} {employee.lastname}: {employee.total_orders} pedidos, Total Vendido: {employee.total_sold}")
