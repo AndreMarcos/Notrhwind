@@ -49,7 +49,8 @@ class OrderDAO(BaseDAO):
         JOIN northwind.employees e ON o.employeeid = e.employeeid
         JOIN northwind.order_details od ON o.orderid = od.orderid
         JOIN northwind.products p ON od.productid = p.productid
-        WHERE o.orderid = %s
+        WHERE o.orderid = %s 
+        LIMIT 1
         """
         cursor.execute(query, (order_id,))
         order_info = cursor.fetchall()
@@ -75,7 +76,7 @@ class OrderDAO(BaseDAO):
         return ranking
 
 from .base_dao import BaseDAOSQLAlchemy
-from sqlalchemy import func
+from sqlalchemy import func, desc
 from models.northwind_models import Order, Employee
   
 class DaoSQLAlchemy(BaseDAOSQLAlchemy):
@@ -102,11 +103,7 @@ class DaoSQLAlchemy(BaseDAOSQLAlchemy):
             'order_date': order.orderdate,
             'customer_name': order.customer.companyname,
             'employee_name': f'{order.employee.firstname} {order.employee.lastname}',
-            'items': [{
-                'product': item.product.productname,
-                'quantity': item.quantity,
-                'price': item.unitprice
-            } for item in order.order_details]
+            'price' : order.freight
         }
         session.close()
         return order_info
